@@ -1,0 +1,13 @@
+# Vie des golems de fer (20.0 = 10 coeurs = vie d'un zombie)
+health: 20.0
+
+# Raisons de spawn pour lesquelles la vie est modifiée.
+# RoseStacker passe généralement par SPAWNER (ou CUSTOM selon les cas).
+# Valeurs possibles : https://jd.papermc.io/paper/org/bukkit/event/entity/CreatureSpawnEvent.SpawnReason.html
+spawn-reasons:
+  - NATURAL
+  - SPAWNER
+  - CUSTOM
+  - VILLAGE_DEFENSE
+  - SPAWNER_EGG
+  # - BUILD_IRONGOLEM   # golems construits par les joueurs (désactivé par défaut)

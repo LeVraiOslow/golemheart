@@ -1,0 +1,14 @@
+name: GolemHealth
+version: '${project.version}'
+main: fr.golemhealth.GolemHealthPlugin
+api-version: '26.2'
+description: Donne aux golems de fer la vie d'un zombie
+softdepend: [RoseStacker]
+commands:
+  golemhealth:
+    description: Recharge la configuration
+    usage: /golemhealth reload
+    permission: golemhealth.admin
+permissions:
+  golemhealth.admin:
+    default: op
