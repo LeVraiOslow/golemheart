@@ -7,7 +7,7 @@ S'applique aux golems qui apparaissent naturellement ou via un spawner, y compri
 ## Fonctionnalités
 
 - Vie des golems de fer configurable (20 PV par défaut)
-- Choix des types de spawn concernés (`NATURAL`, `SPAWNER`, `CUSTOM`...)
+- Tous les spawns sont concernés (naturel, spawner, œuf, dispenser...), avec une liste d'exclusion configurable
 - Compatible RoseStacker (softdepend)
 - Commande de rechargement de la config
 
@@ -28,14 +28,11 @@ S'applique aux golems qui apparaissent naturellement ou via un spawner, y compri
 
 ```yaml
 health: 20.0
+debug: false
+apply-to-existing: false
 
-spawn-reasons:
-  - NATURAL
-  - SPAWNER
-  - CUSTOM
-  - VILLAGE_DEFENSE
-  - SPAWNER_EGG
-  # - BUILD_IRONGOLEM   # golems construits par les joueurs
+excluded-spawn-reasons:
+  - BUILD_IRONGOLEM   # golems construits par les joueurs
 ```
 
 Liste des raisons de spawn : [SpawnReason](https://jd.papermc.io/paper/org/bukkit/event/entity/CreatureSpawnEvent.SpawnReason.html)
@@ -56,12 +53,12 @@ mvn clean package
 
 Le jar est généré dans `target/GolemHealth.jar`.
 
-Si Maven ne résout pas `paper-api`, ajuste la propriété `paper.version` dans le `pom.xml` avec la dernière build Paper 26.2.
+Le `pom.xml` utilise la plage de versions `[26.2.build,)` pour récupérer la dernière build de `paper-api` 26.2. Si besoin, fixe une version précise dans la propriété `paper.version` (ex. `26.2.build.7-beta`).
 
 ## Notes
 
 - Seuls les nouveaux golems sont modifiés, pas ceux déjà présents dans le monde.
-- Si des golems de spawners RoseStacker gardent 100 PV, ajoute la raison de spawn utilisée dans `spawn-reasons`.
+- En cas de souci, active `debug: true` pour voir la raison de spawn de chaque golem dans la console.
 
 ## Licence
 
